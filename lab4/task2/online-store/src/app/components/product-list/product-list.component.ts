@@ -12,10 +12,10 @@ import { Product } from '../../models/product.model';
 })
 export class ProductListComponent {
   private readonly PRODUCT_IMAGES = [
-    '../../assets/images/first.jpeg',
-    '../../assets/images/second.jpeg',
-    '../../assets/images/third.jpg',
-    '../../assets/images/fourth.jpeg',
+    '/assets/images/first.jpeg',
+    '/assets/images/second.jpeg',
+    '/assets/images/third.jpg',
+    '/assets/images/fourth.jpeg',
   ];
 
   readonly products: Product[] = [
