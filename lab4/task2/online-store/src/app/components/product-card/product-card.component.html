@@ -1,0 +1,47 @@
+<div class="card">
+
+  <div class="gallery">
+    <img [src]="selectedImage" [alt]="product.name" class="gallery-main" />
+    <button class="nav-btn prev" (click)="prevImage()">&#8249;</button>
+    <button class="nav-btn next" (click)="nextImage()">&#8250;</button>
+  </div>
+
+  <div class="thumbnails">
+    <img
+      *ngFor="let img of product.images; let i = index"
+      [src]="img"
+      [alt]="'View ' + (i + 1)"
+      class="thumb"
+      [class.active]="i === selectedIndex"
+      (click)="selectImage(i)"
+    />
+  </div>
+
+  <div class="info">
+    <h3 class="name">{{ product.name }}</h3>
+
+    <div class="rating">
+      <span
+        *ngFor="let filled of getStars()"
+        class="star"
+        [class.filled]="filled"
+      >&#9733;</span>
+      <span class="rating-num">{{ product.rating }}</span>
+    </div>
+
+    <p class="description">{{ product.description }}</p>
+
+    <p class="price">{{ product.price | number:'1.0-0' }} ₸</p>
+  </div>
+
+  <div class="actions">
+    <a [href]="product.link" target="_blank" rel="noopener noreferrer" class="btn btn-kaspi">
+      View on Kaspi.kz
+    </a>
+    <div class="share-row">
+      <button class="btn btn-whatsapp" (click)="shareOnWhatsApp()">WhatsApp</button>
+      <button class="btn btn-telegram" (click)="shareOnTelegram()">Telegram</button>
+    </div>
+  </div>
+
+</div>
