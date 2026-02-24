@@ -1,0 +1,88 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f6f8fa;
+}
+
+.name {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.description {
+  margin: 0;
+  color: #57606a;
+  font-size: 14px;
+  min-height: 42px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn {
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  color: #24292f;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-open {
+  grid-column: 1 / -1;
+  background: #1f6feb;
+  border-color: #1f6feb;
+  color: #fff;
+}
+
+.btn-like {
+  color: #cf222e;
+  border-color: #f2b8bd;
+}
+
+.btn-delete {
+  color: #cf222e;
+  border-color: #cf222e;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #fff;
+}
+
+.btn-telegram {
+  background: #229ed9;
+  border-color: #229ed9;
+  color: #fff;
+}

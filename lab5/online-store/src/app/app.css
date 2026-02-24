@@ -1,0 +1,35 @@
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+h1 {
+	margin: 0 0 16px;
+}
+
+.categories {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.categories button {
+	border: 1px solid #d0d7de;
+	background: #fff;
+	color: #24292f;
+	padding: 8px 12px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.categories button.active {
+	background: #1f6feb;
+	color: #fff;
+	border-color: #1f6feb;
+}
+
+.welcome {
+	color: #57606a;
+}

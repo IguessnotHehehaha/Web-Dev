@@ -1,0 +1,11 @@
+<div *ngIf="visibleProducts.length > 0; else empty" class="grid">
+  <app-product-item
+    *ngFor="let product of visibleProducts"
+    [product]="product"
+    (deleteProduct)="onDeleteProduct($event)">
+  </app-product-item>
+</div>
+
+<ng-template #empty>
+  <p class="empty">No products in this category.</p>
+</ng-template>
