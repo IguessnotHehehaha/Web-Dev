@@ -1,5 +1,6 @@
-<div class="container">
+<header class="header">
   <h1>Online Store</h1>
+  <p>Products from Kaspi.kz</p>
 
   <div class="categories">
     <button
@@ -9,7 +10,9 @@
       {{ category.name }}
     </button>
   </div>
+</header>
 
+<div class="container">
   <p *ngIf="selectedCategoryId === null" class="welcome">
     Select a category to view products.
   </p>
