@@ -10,6 +10,15 @@
       {{ category.name }}
     </button>
   </div>
+
+  <div class="filter-buttons" *ngIf="selectedCategoryId !== null">
+    <button 
+      (click)="toggleMaxRating()"
+      [class.active]="showMaxRatingOnly"
+      class="max-rating-btn">
+      {{ showMaxRatingOnly ? 'Show Top Rated Only' : 'Show All Products' }}
+    </button>
+  </div>
 </header>
 
 <div class="container">

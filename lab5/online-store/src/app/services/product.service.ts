@@ -55,4 +55,11 @@ export class ProductService {
   getProductsByCategory(categoryId: number): Product[] {
     return this.products.filter((p) => p.categoryId === categoryId);
   }
+
+  getMaxRatingProductByCategory(categoryId: number): Product | undefined {
+    const categoryProducts = this.getProductsByCategory(categoryId);
+    return categoryProducts.reduce((max, product) => 
+      product.rating > max.rating ? product : max
+    );
+  }
 }

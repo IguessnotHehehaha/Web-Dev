@@ -16,6 +16,7 @@ export class AppComponent {
   categories: Category[] = [];
   selectedCategoryId: number | null = null;
   selectedProducts: Product[] = [];
+  showMaxRatingOnly: boolean = false;
 
   constructor(private readonly productService: ProductService) {
     this.categories = this.productService.getCategories();
@@ -23,7 +24,27 @@ export class AppComponent {
 
   selectCategory(categoryId: number): void {
     this.selectedCategoryId = categoryId;
-    this.selectedProducts = this.productService.getProductsByCategory(categoryId);
+    this.updateSelectedProducts();
+  }
+
+
+  toggleMaxRating(): void {
+    this.showMaxRatingOnly = !this.showMaxRatingOnly;
+    this.updateSelectedProducts();
+  }
+
+  private updateSelectedProducts(): void {
+    if (this.selectedCategoryId === null) {
+      this.selectedProducts = [];
+      return;
+    }
+
+    if (this.showMaxRatingOnly) {
+      const maxRatingProduct = this.productService.getMaxRatingProductByCategory(this.selectedCategoryId);
+      this.selectedProducts = maxRatingProduct ? [maxRatingProduct] : [];
+    } else {
+      this.selectedProducts = this.productService.getProductsByCategory(this.selectedCategoryId);
+    }
   }
 }
 
