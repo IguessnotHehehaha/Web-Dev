@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Album Photos</h1>
+
+  <button class="btn-back" (click)="goBack()">Back to Album</button>
+
+  <div *ngIf="loading" class="loading">Loading photos...</div>
+
+  <div *ngIf="!loading" class="photo-grid">
+    <div *ngFor="let photo of photos" class="photo-card">
+      <img 
+        [src]="photo.thumbnailUrl" 
+        [alt]="photo.title"
+        (error)="onImageError($event)"
+      />
+      <p class="photo-title">{{ photo.title }}</p>
+    </div>
+  </div>
+</div>
