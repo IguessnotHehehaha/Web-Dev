@@ -7,22 +7,13 @@ from api.views import (
     CategoryProductsAPIView,
 )
 
-# from .fbv import products_list, product_detail
-# for .fbv
-# ProductListAPIView = products_list
-# ProductDetailAPIView = product_detail
-
-# from .cbv import *
-# from .mixins import *
-# from .generics import *
-
-
+def to_view(view_obj):
+    return view_obj.as_view() if hasattr(view_obj, "as_view") else view_obj
 
 urlpatterns = [
-    path('products/', ProductListAPIView.as_view(), name='product-list'),
-    path('products/<int:product_id>/', ProductDetailAPIView.as_view(), name='product-detail'),
-    
-    path('categories/', CategoryListAPIView.as_view(), name='category-list'),
-    path('categories/<int:category_id>/', CategoryDetailAPIView.as_view(), name='category-detail'),
-    path('categories/<int:category_id>/products/', CategoryProductsAPIView.as_view(), name='category-products'),
+    path("products/", to_view(ProductListAPIView), name="product-list"),
+    path("products/int:product_id/", to_view(ProductDetailAPIView), name="product-detail"),
+    path("categories/", to_view(CategoryListAPIView), name="category-list"),
+    path("categories/int:category_id/", to_view(CategoryDetailAPIView), name="category-detail"),
+    path("categories/int:category_id/products/", to_view(CategoryProductsAPIView), name="category-products"),
 ]
