@@ -13,6 +13,9 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     lookup_url_kwarg = 'product_id'
+    # def perform_destroy(self, instance):
+    #     instance.is_active = False
+    #     instance.save(update_fields=['is_active'])
 
 class CategoryListAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()

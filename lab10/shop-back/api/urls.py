@@ -12,8 +12,8 @@ def to_view(view_obj):
 
 urlpatterns = [
     path("products/", to_view(ProductListAPIView), name="product-list"),
-    path("products/int:product_id/", to_view(ProductDetailAPIView), name="product-detail"),
+    path("products/<int:product_id>/", to_view(ProductDetailAPIView), name="product-detail"),
     path("categories/", to_view(CategoryListAPIView), name="category-list"),
-    path("categories/int:category_id/", to_view(CategoryDetailAPIView), name="category-detail"),
-    path("categories/int:category_id/products/", to_view(CategoryProductsAPIView), name="category-products"),
+    path("categories/<int:category_id>/", to_view(CategoryDetailAPIView), name="category-detail"),
+    path("categories/<int:category_id>/products/", to_view(CategoryProductsAPIView), name="category-products"),
 ]

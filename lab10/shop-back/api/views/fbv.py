@@ -40,5 +40,6 @@ def product_detail(request, product_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     elif request.method == 'DELETE':
-        product.delete()
+        product.is_active = False
+        product.save(update_fields=['is_active'])
         return Response(status=status.HTTP_204_NO_CONTENT)

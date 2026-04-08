@@ -4,7 +4,7 @@ from .generics import (
     CategoryProductsAPIView,
 )
 
-VIEW_MODE = "generics"
+VIEW_MODE = "fbv"
 
 if VIEW_MODE == "fbv":
     from .fbv import product_list as ProductListAPIView
